@@ -1,4 +1,4 @@
-# PalmCivet
+# PalmCivet [![Build Status](https://travis-ci.org/XenoPhex/palm_civet.svg?branch=master)](https://travis-ci.org/XenoPhex/palm_civet)
 
 ## Installation
 
