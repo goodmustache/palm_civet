@@ -65,9 +65,6 @@ module PalmCivet
     end
 
     value = Float(matches[1])
-    if value <= 0
-      raise InvalidByteQuantityError
-    end
 
     case matches[2][0].capitalize
     when "T"

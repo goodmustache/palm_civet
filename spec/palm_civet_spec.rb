@@ -60,33 +60,33 @@ RSpec.describe PalmCivet do
       expect(PalmCivet.to_bytes("\t\n\r 5MB ")).to eq(5 * PalmCivet::MEGABYTE)
     end
 
+    context 'when the byte amount is 0' do
+      it 'returns 0 bytes' do
+        expect(PalmCivet.to_bytes("0TB")).to eq(0)
+      end
+    end
+
+    context 'when the byte amount is negative' do
+      it 'returns a negative amount of bytes' do
+        expect(PalmCivet.to_bytes('-200B')).to eq(-200)
+      end
+    end
+
     context "raises an error" do
       it "when the unit is missing" do
-	expect {
-	  PalmCivet.to_bytes("5")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_bytes("5")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
       end
 
       it "when the unit is unrecognized" do
-	expect {
-	  PalmCivet.to_bytes("5MBB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_bytes("5MBB")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
 
-	expect {
-	  PalmCivet.to_bytes("5BB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
-      end
-
-      it "for negative values" do
-	expect {
-	  PalmCivet.to_bytes("-5MB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
-      end
-
-      it "for zero values" do
-	expect {
-	  PalmCivet.to_bytes("0TB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_bytes("5BB")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
       end
     end
   end
@@ -123,33 +123,33 @@ RSpec.describe PalmCivet do
       expect(PalmCivet.to_megabytes("\t\n\r 5MB ")).to eq(5)
     end
 
+    context 'when the byte amount is 0' do
+      it 'returns 0 megabytes' do
+        expect(PalmCivet.to_megabytes('0TB')).to eq(0)
+      end
+    end
+
+    context 'when the byte amount is negative' do
+      it 'returns a negative amount of megabytes' do
+        expect(PalmCivet.to_megabytes('-200MB')).to eq(-200)
+      end
+    end
+
     context "raises an error" do
       it "when the unit is missing" do
-	expect {
-	  PalmCivet.to_megabytes("5")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_megabytes("5")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
       end
 
       it "when the unit is unrecognized" do
-	expect {
-	  PalmCivet.to_megabytes("5MBB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_megabytes("5MBB")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
 
-	expect {
-	  PalmCivet.to_megabytes("5BB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
-      end
-
-      it "for negative values" do
-	expect {
-	  PalmCivet.to_megabytes("-5MB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
-      end
-
-      it "for zero values" do
-	expect {
-	  PalmCivet.to_megabytes("0TB")
-	}.to raise_error(PalmCivet::InvalidByteQuantityError)
+        expect {
+          PalmCivet.to_megabytes("5BB")
+        }.to raise_error(PalmCivet::InvalidByteQuantityError)
       end
     end
   end
