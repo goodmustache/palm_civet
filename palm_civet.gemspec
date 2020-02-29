@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Human readable byte formatter.}
   spec.description   = %q{A ruby port of github.com/cloudfoundry/bytefmt.}
-  spec.homepage      = "https://github.com/XenoPhex/palm_civet"
+  spec.homepage      = "https://github.com/goodmustache/palm_civet"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
